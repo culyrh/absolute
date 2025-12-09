@@ -1,128 +1,64 @@
-## 디렉토리 구조
 
-   ```
-   absolute-be
-   │  .gitignore
-   │  main.py
-   │  README.md
-   │  requirements.txt
-   │
-   ├─app
-   │  ├─api
-   │  │  │  dependencies.py
-   │  │  │  __init__.py
-   │  │  │
-   │  │  ├─endpoints
-   │  │  │  │  ml_recommend.py
-   │  │  │  │  recommend.py
-   │  │  │  │  s3.py
-   │  │  │  │  stations.py
-   │  │  │  │  usage_types.py
-   │  │  │  │  __init__.py
-   │  │  │  │
-   │  │  │  └─__pycache__
-   │  │  └─__pycache__
-   │  │
-   │  ├─comparison
-   │  │  │  benchmark.py
-   │  │  │  ml_performance_test.py
-   │  │  │  performance_test.py
-   │  │  │  test_api.py
-   │  │  │  __init__.py
-   │  │  │
-   │  │  ├─algorithms
-   │  │  │  │  ahp_topsis.py
-   │  │  │  │  base.py
-   │  │  │  │  collaborative.py
-   │  │  │  │  cosine_similarity.py
-   │  │  │  │  euclidean_distance.py
-   │  │  │  │  pearson_correlation.py
-   │  │  │  │  popularity.py
-   │  │  │  │
-   │  │  │  └─__pycache__
-   │  │  └─__pycache__
-   │  │
-   │  ├─core
-   │  │  │  config.py
-   │  │  │  __init__.py
-   │  │  │
-   │  │  └─__pycache__
-   │  │
-   │  ├─db
-   │  │      __init__.py
-   │  │
-   │  ├─models
-   │  │      gas_station.py
-   │  │      recommendation.py
-   │  │      usage_type.py
-   │  │      __init__.py
-   │  │
-   │  ├─schemas
-   │  │  │  gas_station.py
-   │  │  │  recommendation.py
-   │  │  │  usage_type.py
-   │  │  │  __init__.py
-   │  │  │
-   │  │  └─__pycache__
-   │  │
-   │  ├─services
-   │  │  │  geo_service.py
-   │  │  │  ml_location_recommender.py
-   │  │  │  recommend_service.py
-   │  │  │  __init__.py
-   │  │  │
-   │  │  └─__pycache__
-   │  │
-   │  ├─utils
-   │  │  │  data_loader.py
-   │  │  │  preprocessing.py
-   │  │  │  __init__.py
-   │  │  │
-   │  │  └─__pycache__
-   │  │
-   │  └─__pycache__
-   │
-   ├─data
-   │      2024년_도로종류별_교통량_및_XY좌표.csv
-   │      gas_station_features.csv
-   │      jeonju_gas_station.csv
-   │      train.csv
-   │      대분류_센터로이드.csv
-   │      숙박업소수집계_행정동별.csv
-   │      전국1000명당사업체수_행정동별.csv
-   │      전국인구수_행정동별.csv
-   │      추천결과_행단위.csv
-   │      폐주유소좌표변환.csv
-   │
-   ├─tests
-   └─__pycache__
-   ```
+---
 
-<br>
+개발 배경
+
+---
+
+## 1. 구현방법
+
+### 데이터 구성 체계
+<img width="1269" height="664" alt="image" src="https://github.com/user-attachments/assets/88e0512d-ed21-4f3c-b8a3-75c2de05d4db" />
+
+### 활용방안 데이터 기준
+<img width="1157" height="630" alt="image" src="https://github.com/user-attachments/assets/fbae7cb1-1b4a-46ff-9006-43cce5f6cbf6" />
+
+### 알고리즘 설계
+<div style="display:flex; gap:10px;">
+  <img src="https://github.com/user-attachments/assets/18e2aea5-7cda-45e1-8b67-911aef1b0919" width="49%" />
+  <img src="https://github.com/user-attachments/assets/dc70a139-68fb-4ecb-abea-c3ba2b1fab32" width="49%" />
+</div>
+
+---
+
+## 2. 수행내용
+
+### 필지 데이터 분석
+<img width="1253" height="576" alt="image" src="https://github.com/user-attachments/assets/413cc2ec-6683-4b34-836a-b6813c1f79ff" />
+<img width="1355" height="520" alt="image" src="https://github.com/user-attachments/assets/dfdec09c-4721-4c7f-b642-e8bf55bfe1d6" />
+
+### 모델 개선
+<div style="display:flex; gap:10px;">
+  <img src="https://github.com/user-attachments/assets/81bdc413-f15e-417a-ac24-4fdfba72f85b" width="60%" />
+  <img src="https://github.com/user-attachments/assets/9ef599b2-f167-454b-82fb-31d42d35da5f" width="38%" />
+</div>
 
 
-## 실행 방법
+### 모델 핵심 피처 변수
+<img width="1344" height="666" alt="image" src="https://github.com/user-attachments/assets/5cec208f-9f44-4540-9844-afc0c89ec7ec" />
 
+### 서비스 구조
+<img width="1139" height="660" alt="image" src="https://github.com/user-attachments/assets/67b9764c-1342-4bf7-b031-5f7006590e34" />
 
-레포지토리 클론
+---
 
-   ```bash
-   git clone https://github.com/culyrh/absolute-BE.git
-   cd absolute-be
-   ```
+## 3. 결과
 
-필요한 패키지 설치
+<img width="2260" height="1243" alt="image" src="https://github.com/user-attachments/assets/73a1fba6-3769-447b-96bf-963846f5392a" />
+<img width="1380" height="632" alt="image" src="https://github.com/user-attachments/assets/345c9a80-88d6-47a0-87d1-8917bdf336cf" />
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+---
 
-서버 실행
+## Tech Stack
 
-   ```bash
-   python main.py
-   ```
+![Python](https://img.shields.io/badge/Python-3.10-blue.svg)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.110-green.svg)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue.svg)
+![PostGIS](https://img.shields.io/badge/PostGIS-3.3-green.svg)
+![QGIS](https://img.shields.io/badge/QGIS-3.34-brightgreen.svg)
+![Docker](https://img.shields.io/badge/Docker-Enabled-blue.svg)
+![Kakao API](https://img.shields.io/badge/Kakao%20API-POI-yellow.svg)
+![RandomForest](https://img.shields.io/badge/ML-RandomForest-orange.svg)
+![Vercel](https://img.shields.io/badge/Vercel-Hosting-black.svg)
+![AWS](https://img.shields.io/badge/AWS-EC2-orange.svg)
 
-브라우저에서 엔드포인트 문서 확인해주세요
-
-   http://localhost:8000/docs
