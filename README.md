@@ -1,16 +1,44 @@
 # 2025-2 전북대학교 SW 캡스톤디자인
 
 해당 프로젝트는 **[한국국토정보공사(LX)](https://www.lx.or.kr/kor.do)** x **팀 앱솔루트**의 협력으로 진행되었습니다.
-[Front-End](https://github.com/gajaeup/absolute)
+<br>
+프론트 깃허브 링크 : [Front-End](https://github.com/gajaeup/absolute)
 
-### 팀 앱솔루트
+## 팀 앱솔루트
 
-| 성명 | 역할 |
-| :-:  | :-: |
-| 권서진 | . |
-| 김지애 | . |
-| 박소현 | . |
-| 진하은 | . |
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/sjin02">
+        <img src="https://avatars.githubusercontent.com/sjin02" width="120px" style="border-radius:50%;" /><br/>
+        <sub><b>권서진</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/gajaeup">
+        <img src="https://avatars.githubusercontent.com/gajaeup" width="120px" style="border-radius:50%;" /><br/>
+        <sub><b>김지애</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/culyrh">
+        <img src="https://avatars.githubusercontent.com/culyrh" width="120px" style="border-radius:50%;" /><br/>
+        <sub><b>박소현</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/JinHaeunn">
+        <img src="https://avatars.githubusercontent.com/JinHaeunn" width="120px" style="border-radius:50%;" /><br/>
+        <sub><b>진하은</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+</div>
+
 
 ---
 ## 주제
@@ -32,16 +60,13 @@
 ## 1. 구현방법
 
 ### 데이터 구성 체계
-<img width="1269" height="664" alt="image" src="https://github.com/user-attachments/assets/88e0512d-ed21-4f3c-b8a3-75c2de05d4db" />
+<img width="1561" height="432" alt="image" src="https://github.com/user-attachments/assets/700a568f-34f2-40bb-bdb6-3f26df3bd194" />
 
 ### 활용방안 데이터 기준
 <img width="1157" height="630" alt="image" src="https://github.com/user-attachments/assets/fbae7cb1-1b4a-46ff-9006-43cce5f6cbf6" />
 
 ### 알고리즘 설계
-<div style="display:flex; gap:10px;">
-  <img src="https://github.com/user-attachments/assets/18e2aea5-7cda-45e1-8b67-911aef1b0919" width="49%" />
-  <img src="https://github.com/user-attachments/assets/dc70a139-68fb-4ecb-abea-c3ba2b1fab32" width="49%" />
-</div>
+<img width="1255" height="589" alt="image" src="https://github.com/user-attachments/assets/cfccd3fc-e9a6-47db-8fe5-ddea5858180e" />
 
 ---
 
@@ -57,10 +82,8 @@
 <img width="1355" height="520" alt="image" src="https://github.com/user-attachments/assets/dfdec09c-4721-4c7f-b642-e8bf55bfe1d6" />
 
 ### 모델 개선
-<div style="display:flex; gap:10px;">
-  <img src="https://github.com/user-attachments/assets/81bdc413-f15e-417a-ac24-4fdfba72f85b" width="60%" />
-  <img src="https://github.com/user-attachments/assets/9ef599b2-f167-454b-82fb-31d42d35da5f" width="38%" />
-</div>
+<img width="1301" height="622" alt="image" src="https://github.com/user-attachments/assets/e5f896cd-5457-4015-8e9c-e296b5e9afc2" />
+
 
 * 공간 분석으로 산출한 데이터 + 비공간 지표 => 학습 데이터셋 구성
 * 랜덤 포레스트 분류기를 사용하여 도시 공간 패턴을 다수의 의사 결정 트리로 학습
@@ -77,8 +100,12 @@
 ## 3. 결과
 
 <img width="2260" height="1243" alt="image" src="https://github.com/user-attachments/assets/73a1fba6-3769-447b-96bf-963846f5392a" />
+
+* 주유소 선택했을 때의 사이트 이미지
+
 <img width="1380" height="632" alt="image" src="https://github.com/user-attachments/assets/345c9a80-88d6-47a0-87d1-8917bdf336cf" />
 
+* 보고서 출력했을 때의 분석 결과
 ---
 
 ## Tech Stack
