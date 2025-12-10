@@ -3,15 +3,22 @@
 from app.services.geoai_feature_engineer import GeoAIFeatureEngineer
 from app.services.geoai_model import GeoAIClassifier
 
-import matplotlib.pyplot as plt
-plt.rcParams["font.family"] = "Malgun Gothic"
-plt.rcParams["axes.unicode_minus"] = False
-
 import os
 import numpy as np
-import folium
-from collections import Counter
-from sklearn.metrics import classification_report, precision_score, recall_score
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.metrics import (
+    precision_score,
+    recall_score,
+    f1_score,
+    confusion_matrix,
+)
+
+
+plt.rcParams["font.family"] = "Malgun Gothic"
+plt.rcParams["axes.unicode_minus"] = False
 
 
 class GeoAIPipeline:
@@ -19,150 +26,168 @@ class GeoAIPipeline:
         self.engineer = GeoAIFeatureEngineer()
         self.model = GeoAIClassifier()
 
-    # --------------------- Train ---------------------
+    # --------------------- Train (내부 test 포함) ---------------------
     def run(self):
-        df = self.engineer.run()
-        clf = self.model.train(df)
+        """
+        1) train.csv 에 대해 Feature Engineering 실행
+        2) RandomForest 학습 + (train 내부) test 성능 출력
+        """
+        print("🚀 GeoAI FeatureEngineer (축소버전) 활성화\n")
+        df_train = self.engineer.run()   # 여기서 train.csv + 공간 피처 붙음
+        df_train = df_train.loc[:, ~df_train.columns.duplicated()]  # 추가
+        clf = self.model.train(df_train) # 여기서 train/test split + 성능 출력
         self.model.clf = clf
 
-    # ---------------- Feature Importance ----------------
-    def plot_feature_importance(self):
+        return df_train
+
+    # ---------------- Feature Importance PNG 저장 ----------------
+    def save_feature_importance(self, output_path="feature_importance.png"):
         clf = self.model.clf
         feature_names = self.model.feature_names_
 
         importances = clf.feature_importances_
         indices = np.argsort(importances)
 
-        plt.figure(figsize=(8, 6))
-        plt.title("GeoAI Feature Importance")
-        plt.barh(range(len(indices)), importances[indices], align="center")
-        plt.yticks(range(len(indices)), [feature_names[i] for i in indices])
-        plt.xlabel("Importance")
+        plt.figure(figsize=(10, 8))
+        plt.title("Feature Importance (Random Forest)", fontsize=16)
+        plt.barh(range(len(indices)), importances[indices])
+        plt.yticks(
+            range(len(indices)),
+            [feature_names[i] for i in indices],
+            fontsize=9,
+        )
+        plt.xlabel("Importance", fontsize=12)
         plt.tight_layout()
-        plt.show()
+        plt.savefig(output_path, dpi=300)
+        plt.close()
 
-    # ---------------- Precision / Recall Graph ----------------
-    def plot_precision_recall(self, y_true, y_pred):
-        classes = sorted(list(set(y_true)))
+        print(f"📌 Feature Importance 저장됨 → {output_path}")
 
-        precisions = precision_score(
-            y_true, y_pred, labels=classes, average=None, zero_division=0
+    # ---------------- Confusion Matrix PNG 저장 ----------------
+    def save_confusion_matrix(self, output_path="confusion_matrix.png"):
+        y_true = self.model.last_y_test
+        y_pred = self.model.last_y_pred
+
+        if y_true is None or y_pred is None:
+            print("⚠️ 아직 train 내부 test 결과가 없습니다.")
+            return
+
+        labels = sorted(list(set(y_true)))
+        cm = confusion_matrix(y_true, y_pred, labels=labels)
+
+        plt.figure(figsize=(10, 8))
+        sns.heatmap(
+            cm,
+            annot=True,
+            fmt="d",
+            cmap="Blues",
+            xticklabels=labels,
+            yticklabels=labels,
         )
-        recalls = recall_score(
-            y_true, y_pred, labels=classes, average=None, zero_division=0
-        )
-
-        x = np.arange(len(classes))
-        width = 0.35
-
-        plt.figure(figsize=(12, 7))
-        plt.bar(x - width/2, precisions, width, label="Precision")
-        plt.bar(x + width/2, recalls, width, label="Recall")
-
-        plt.xlabel("대분류")
-        plt.ylabel("Score")
-        plt.title("Precision / Recall per Class")
-        plt.xticks(x, classes, rotation=45)
-        plt.legend()
+        plt.title("Confusion Matrix (Internal Test Split)", fontsize=16)
+        plt.ylabel("True Label")
+        plt.xlabel("Predicted Label")
         plt.tight_layout()
-        plt.show()
+        plt.savefig(output_path, dpi=300)
+        plt.close()
 
-    # ---------------- Visualization (HTML Map + Buffer) -----------------
-    def visualize_on_map(self, df):
-        m = folium.Map(
-            location=[df["위도"].mean(), df["경도"].mean()],
-            zoom_start=11
-        )
+        print(f"📌 Confusion Matrix 저장됨 → {output_path}")
 
-        # 버퍼 레이어와 포인트 레이어 분리
-        buf300_layer = folium.FeatureGroup(name="300m Buffer", show=False)
-        buf500_layer = folium.FeatureGroup(name="500m Buffer", show=False)
-        point_layer = folium.FeatureGroup(name="Stations", show=True)
+    # ---------------- Class별 성능 표 출력 ----------------
+    def print_class_performance(self):
+        y_true = self.model.last_y_test
+        y_pred = self.model.last_y_pred
 
-        for _, row in df.iterrows():
-            lat = float(row["위도"])
-            lon = float(row["경도"])
+        if y_true is None or y_pred is None:
+            print("⚠️ 아직 train 내부 test 결과가 없습니다.")
+            return
 
-            # 300m / 500m 버퍼 (원)
-            folium.Circle(
-                location=[lat, lon],
-                radius=300,
-                color="blue",
-                fill=False,
-                weight=1,
-                opacity=0.5
-            ).add_to(buf300_layer)
+        labels = sorted(list(set(y_true)))
 
-            folium.Circle(
-                location=[lat, lon],
-                radius=500,
-                color="green",
-                fill=False,
-                weight=1,
-                opacity=0.5
-            ).add_to(buf500_layer)
+        print("\n📊 === Class별 성능 요약 (Internal Test Split 기준) ===")
+        print(f"{'클래스':<12} {'Precision':>10} {'Recall':>10} {'F1':>10}")
 
-            # 포인트
-            html = f"""
-            <hr>
-            <b>parcel_300m:</b> {row['parcel_300m']}<br>
-            <b>parcel_500m:</b> {row['parcel_500m']}<br>
-            <b>nearest_parcel_m:</b> {row['nearest_parcel_m']:.2f}m<br>
-            <hr>
-            <b>POI 300m</b><br>
-            편의점: {row['poi_store_300m']}<br>
-            숙박시설: {row['poi_hotel_300m']}<br>
-            음식점: {row['poi_restaurant_300m']}<br>
-            """
+        for cls in labels:
+            p = precision_score(
+                y_true, y_pred, labels=[cls], average="macro", zero_division=0
+            )
+            r = recall_score(
+                y_true, y_pred, labels=[cls], average="macro", zero_division=0
+            )
+            f = f1_score(
+                y_true, y_pred, labels=[cls], average="macro", zero_division=0
+            )
+            print(f"{cls:<12} {p:>10.2f} {r:>10.2f} {f:>10.2f}")
 
-            folium.CircleMarker(
-                [lat, lon],
-                radius=5,
-                fill=True,
-                color="red",
-                fill_color="blue",
-                popup=folium.Popup(html, max_width=300)
-            ).add_to(point_layer)
 
-        buf300_layer.add_to(m)
-        buf500_layer.add_to(m)
-        point_layer.add_to(m)
+    @staticmethod
+    def align_test_columns(df_test, train_features):
+        # 1) 공백 제거
+        df_test.columns = df_test.columns.str.strip()
 
-        folium.LayerControl().add_to(m)
+        # 2) train에 있는데 test에 없는 컬럼은 0으로 생성
+        for col in train_features:
+            if col not in df_test.columns:
+                df_test[col] = 0
 
-        # 같은 services 폴더에 저장
-        CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-        output_path = os.path.join(CURRENT_DIR, "test_map.html")
-        m.save(output_path)
-        print("📌 test_map.html 생성됨")
+        # 3) test에 있는데 train에 없는 컬럼은 삭제
+        cols_to_drop = [
+            c for c in df_test.columns
+            if c not in train_features and c != "대분류"
+        ]
+        if cols_to_drop:
+            df_test = df_test.drop(columns=cols_to_drop)
 
-    # ---------------------- Test ---------------------
-    def evaluate_on_test(self, path):
-        test_df = self.engineer.run_test(path)
+        # 4) 순서 강제 정렬
+        df_test = df_test[train_features]
 
-        X_test = test_df[self.model.feature_names_]
-        preds = self.model.clf.predict(X_test)
+        return df_test
 
-        if "대분류" in test_df.columns:
-            print("📊 === test 성능 ===")
-            print(classification_report(test_df["대분류"], preds))
+    
+    # ---------------- (옵션) test_data.csv 별도 평가 ----------------
+    def evaluate_on_test(self, test_csv_path: str):
+        print(f"📂 test CSV 로드 중 → {test_csv_path}")
 
-            # 클래스별 개수 디버깅 (근린생활시설 안 나오는지 확인용)
-            print("🔎 y_true class counts:", Counter(test_df["대분류"]))
-            print("🔎 y_pred class counts:", Counter(preds))
+        df_test_fe = self.engineer.run_test(test_csv_path)
+        df_test_fe = df_test_fe.loc[:, ~df_test_fe.columns.duplicated()]
+        print("📊 test feature-engineered shape:", df_test_fe.shape)
 
-            # 그래프
-            self.plot_feature_importance()
-            self.plot_precision_recall(test_df["대분류"], preds)
+        train_features = self.model.feature_names_
+        print("🔥 TRAIN FEATURE LIST:", train_features)
 
-        test_df["예측대분류"] = preds
+        # --- 여기서 test feature를 train과 완전히 동일하게 재구성 ---
+        df_test_aligned = pd.DataFrame({
+            col: df_test_fe[col].astype(float)
+            for col in train_features
+        })  
 
-        self.visualize_on_map(test_df)
+        print("🔥 TEST ALIGNED COLS:", df_test_aligned.columns.tolist())
 
-        return test_df
+        preds = self.model.clf.predict(df_test_aligned)
+        print("🎯 === TEST 예측 결과 ===")
+        print(preds[:20])
+
+        # test CSV 에 '대분류' 있으면 성능도 출력
+        if "대분류" in df_test_fe.columns:
+            y_true = df_test_fe["대분류"]
+            print("\n📊 === TEST 성능 (test_data.csv 기준) ===")
+            from sklearn.metrics import classification_report
+            print(classification_report(y_true, preds))
+
+        return preds
 
 
 if __name__ == "__main__":
     pipe = GeoAIPipeline()
+
+    # 1) train.csv 기준으로 학습 + 내부 test 평가
     pipe.run()
+
+    # 2) 그 내부 test 결과 기준으로 PNG/표 뽑기
+    #   (생성 경로: app/services/feature_importance.png, confusion_matrix.png)
+    pipe.save_feature_importance("feature_importance.png")
+    pipe.save_confusion_matrix("confusion_matrix.png")
+    pipe.print_class_performance()
+
+    # 3) test_data.csv 별도 평가가 진짜 필요하면, 이 줄을 수동으로 추가해서 사용
     pipe.evaluate_on_test(r"data/test_data.csv")

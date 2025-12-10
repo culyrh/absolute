@@ -1,5 +1,3 @@
-# app/services/geoai_model.py
-
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -12,16 +10,16 @@ class GeoAIClassifier:
         self.feature_names_ = []
 
     def train(self, df: pd.DataFrame):
+
+        # ✔ 원래 네가 사용하던 고정 feature 목록 (정확히 복구)
         feature_cols = [
             "인구[명]",
             "교통량(AADT)",
             "숙박업소(관광지수)",
             "상권밀집도(비율)",
-
             "parcel_300m",
             "parcel_500m",
             "nearest_parcel_m",
-
             "poi_store_300m",
             "poi_hotel_300m",
             "poi_restaurant_300m",
@@ -44,8 +42,11 @@ class GeoAIClassifier:
         clf.fit(X_train, y_train)
 
         preds = clf.predict(X_test)
+
         print("📊 === train 내부 검증 성능 ===")
         print(classification_report(y_test, preds))
 
+        self.last_y_test = y_test
+        self.last_y_pred = preds
         self.clf = clf
         return clf

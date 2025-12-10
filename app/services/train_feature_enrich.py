@@ -1,23 +1,68 @@
 import pandas as pd
-from app.services.geoai_feature_engineer import GeoAIFeatureEngineer
-from app.services.geoai_config import GeoAIConfig
 
-def main():
-    cfg = GeoAIConfig()
+INPUT = "data/test_data_with_parcel.csv"
+OUTPUT = "data/test_data_final.csv"
 
-    print("📂 train.csv 로드 중...")
-    train_df = pd.read_csv(cfg.train_csv)
+print("📂 파일 로드:", INPUT)
+df = pd.read_csv(INPUT)
 
-    # 위도/경도가 이미 있으므로 바로 FeatureEngineer 적용 가능
-    engineer = GeoAIFeatureEngineer(debug=True)
+# -------------------------------
+# 1) parcel/poi 중복 컬럼 식별
+# -------------------------------
+cols = df.columns.tolist()
 
-    print("🧮 train.csv 공간 피처 생성 중...")
-    enriched = engineer.run()   # train.csv 전용 엔지니어링
+# 각 컬럼 등장 위치 찾기
+p1 = cols.index("parcel_300m")                 # 첫 parcel
+p1_end = p1 + 3                                 # parcel 3개
 
-    print("💾 저장 중 → data/train_with_parcel.csv")
-    enriched.to_csv(cfg.data_dir / "train.csv", index=False)
+poi1_start = p1_end
+poi1_end = poi1_start + 3                       # poi 3개
 
-    print("🎉 완료: train_with_parcel.csv 생성됨")
+# 두 번째 parcel 위치 찾기 (뒤에서 찾음)
+p2 = len(cols) - 6                              # parcel_300m 실제 계산본 시작
+p2_end = p2 + 3
 
-if __name__ == "__main__":
-    main()
+# 마지막 poi (지워야 함)
+poi2_start = p2_end
+poi2_end = poi2_start + 3
+
+# -------------------------------
+# 2) 필요한 컬럼만 남기기
+# -------------------------------
+keep_cols = (
+    cols[0:10]              # 대분류 ~ adm_cd2 기본 정보
+    + cols[p2:p2_end]       # 두 번째 parcel set (살림)
+    + cols[poi1_start:poi1_end]  # 첫 번째 poi set (살림)
+)
+
+df2 = df[keep_cols]
+
+# -------------------------------
+# 3) train.csv 컬럼 순서로 정렬
+# -------------------------------
+TRAIN_COLUMNS = [
+    "대분류",
+    "지번주소 (읍/면/동)",
+    "관할주소",
+    "인구[명]",
+    "교통량(AADT)",
+    "숙박업소(관광지수)",
+    "상권밀집도(비율)",
+    "위도",
+    "경도",
+    "adm_cd2",
+    "parcel_300m",
+    "parcel_500m",
+    "nearest_parcel_m",
+    "poi_store_300m",
+    "poi_hotel_300m",
+    "poi_restaurant_300m",
+]
+
+df2 = df2[TRAIN_COLUMNS]
+
+# -------------------------------
+# 저장
+# -------------------------------
+df2.to_csv(OUTPUT, index=False)
+print("🎉 완료:", OUTPUT)
