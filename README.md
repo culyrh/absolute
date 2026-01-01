@@ -75,12 +75,15 @@
 
 ## 2. 수행내용
 
-### 필지 데이터 분석
+### 필지 데이터 분석 
+
+- [POST_GIS.md](docs/notes/POST_GIS.md)
+
 <img width="1253" height="576" alt="image" src="https://github.com/user-attachments/assets/413cc2ec-6683-4b34-836a-b6813c1f79ff" />
 
 * QGIS를 사용하여 공간 데이터 통합
 * PostgreSQL DB에서 공간 데이터 베이스 구축
-* PostGIS를 활용하여 공간 연산
+* PostGIS를 활용하여 공간 연산 
 
 <img width="1355" height="520" alt="image" src="https://github.com/user-attachments/assets/dfdec09c-4721-4c7f-b642-e8bf55bfe1d6" />
 
