@@ -45,10 +45,10 @@
 ### GeoAI 기반 폐주유소 부지활용 의사결정 지원시스템 개발
 ---
 ## 목적
-### 전기차 보급 확대와 에너지 전환 흐름으로 증가하고 있는 폐주유소 유휴부지에 대해 인구, 교통량, 상권, 관광 지표 등 공간 데이터를 기반으로 AI 분석을 수행하여 각 부지에 적합한 최적의 활용 유형을 자동으로 추천하는 의사결정 지원 시스템을 구축한다.
+### 전기차 보급 확대와 에너지 전환 흐름으로 증가하고 있는 폐주유소 유휴부지에 대해 공간 데이터를 기반으로 AI 분석을 수행하여 각 부지에 적합한 최적의 활용 유형을 추천하는 의사결정 지원 시스템을 구축한다.
 ---
 ## 필요성
-* 폐주유소의 증가로 인한 도시 미관 저해, 환경 오염, 안전사고 위험 등 다양한 사회적 문제가 지속적으로 발생
+* 폐주유소의 증가로 인한 **도시 미관 저해, 환경 오염, 안전사고 위험** 등 다양한 사회적 문제가 지속적으로 발생
 * 현재는 폐주유소 활용 여부를 행정 담당자가 현장 조사와 주관적 판단에 의존해 결정하는 한계 존재
 * 교통량, 인구, 상권, 관광 데이터 등 다양한 공공데이터가 축적되고 있음에도 이를 종합적으로 분석하여 활용하는 시스템 부족</br>
 <img width="6600" height="3713" alt="image" src="https://github.com/user-attachments/assets/880fdc09-2e3c-4c6d-a9cb-1501ed6ab249" />
@@ -90,7 +90,8 @@
 
 
 ### 모델 핵심 피처 변수
-<img width="1344" height="666" alt="image" src="https://github.com/user-attachments/assets/5cec208f-9f44-4540-9844-afc0c89ec7ec" />
+
+![alt text](docs/image.png)
 
 ### 서비스 구조
 <img width="1139" height="660" alt="image" src="https://github.com/user-attachments/assets/67b9764c-1342-4bf7-b031-5f7006590e34" />
@@ -101,11 +102,11 @@
 
 <img width="2260" height="1243" alt="image" src="https://github.com/user-attachments/assets/73a1fba6-3769-447b-96bf-963846f5392a" />
 
-* 주유소 선택했을 때의 사이트 이미지
+* 주유소 마커 선택 시 표시되는 사이트 이미지
 
 <img width="1380" height="632" alt="image" src="https://github.com/user-attachments/assets/345c9a80-88d6-47a0-87d1-8917bdf336cf" />
 
-* 보고서 출력했을 때의 분석 결과(LLM출력)
+* 보고서 분석 결과 예시 (LLM 출력)
 ---
 
 ## Tech Stack
