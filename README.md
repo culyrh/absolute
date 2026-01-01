@@ -45,7 +45,7 @@
 ### GeoAI 기반 폐주유소 부지활용 의사결정 지원시스템 개발
 ---
 ## 목적
-### 전기차 보급 확대와 에너지 전환 흐름으로 증가하고 있는 폐주유소 유휴부지에 대해 공간 데이터를 기반으로 AI 분석을 수행하여 각 부지에 적합한 최적의 활용 유형을 추천하는 의사결정 지원 시스템을 구축한다.
+### 전기차 보급 확대와 에너지 전환 흐름으로 증가하고 있는 폐주유소 유휴부지에 대해 공간 데이터 기반 AI 분석을 수행하여 각 부지에 적합한 최적의 활용 유형을 추천하는 의사결정 지원 시스템을 구축한다.
 ---
 ## 필요성
 * 폐주유소의 증가로 인한 **도시 미관 저해, 환경 오염, 안전사고 위험** 등 다양한 사회적 문제가 지속적으로 발생
@@ -53,7 +53,7 @@
 * 교통량, 인구, 상권, 관광 데이터 등 다양한 공공데이터가 축적되고 있음에도 이를 종합적으로 분석하여 활용하는 시스템 부족</br>
 <img width="6600" height="3713" alt="image" src="https://github.com/user-attachments/assets/880fdc09-2e3c-4c6d-a9cb-1501ed6ab249" />
 
-* 따라서 데이터 기반의 객관적인 폐주유소 활용 방안 추천 시스템이 필요함
+* 데이터 기반의 객관적인 폐주유소 활용 방안 추천 시스템이 필요함
 
 ---
 
@@ -68,7 +68,6 @@
 <br>
 
 ### 알고리즘 설계
-<img width="1255" height="589" alt="image" src="https://github.com/user-attachments/assets/cfccd3fc-e9a6-47db-8fe5-ddea5858180e" />
 
 ![alt text](docs/algorithm.png)
 
@@ -77,7 +76,6 @@
 ## 2. 수행내용
 
 ### 필지 데이터 분석
-<img width="1253" height="576" alt="image" src="https://github.com/user-attachments/assets/413cc2ec-6683-4b34-836a-b6813c1f79ff" />
 
 <img width="1253" height="576" alt="image" src="docs/gis.png" />
 
