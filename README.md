@@ -53,7 +53,7 @@
 * 교통량, 인구, 상권, 관광 데이터 등 다양한 공공데이터가 축적되고 있음에도 이를 종합적으로 분석하여 활용하는 시스템 부족</br>
 <img width="6600" height="3713" alt="image" src="https://github.com/user-attachments/assets/880fdc09-2e3c-4c6d-a9cb-1501ed6ab249" />
 
-* 따라서 **데이터 기반의 객관적인 폐주유소 활용 방안 추천 시스템**이 필요함
+* 따라서 데이터 기반의 객관적인 폐주유소 활용 방안 추천 시스템이 필요함
 
 ---
 
@@ -87,7 +87,7 @@
 <br>
 
 ### 모델 개선
-![alt text](docs/image-1.png)
+<img width="1301" height="622" alt="image" src="https://github.com/user-attachments/assets/e5f896cd-5457-4015-8e9c-e296b5e9afc2" />
 
 * 공간 분석으로 산출한 데이터 + 비공간 지표 => 학습 데이터셋 구성
 * 랜덤 포레스트 분류기를 사용하여 도시 공간 패턴을 다수의 의사 결정 트리로 학습
