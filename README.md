@@ -65,6 +65,8 @@
 ### 활용방안 데이터 기준
 <img width="1157" height="630" alt="image" src="https://github.com/user-attachments/assets/fbae7cb1-1b4a-46ff-9006-43cce5f6cbf6" />
 
+<br>
+
 ### 알고리즘 설계
 <img width="1255" height="589" alt="image" src="https://github.com/user-attachments/assets/cfccd3fc-e9a6-47db-8fe5-ddea5858180e" />
 
@@ -81,6 +83,8 @@
 
 <img width="1355" height="520" alt="image" src="https://github.com/user-attachments/assets/dfdec09c-4721-4c7f-b642-e8bf55bfe1d6" />
 
+<br>
+
 ### 모델 개선
 <img width="1301" height="622" alt="image" src="https://github.com/user-attachments/assets/e5f896cd-5457-4015-8e9c-e296b5e9afc2" />
 
@@ -88,10 +92,13 @@
 * 공간 분석으로 산출한 데이터 + 비공간 지표 => 학습 데이터셋 구성
 * 랜덤 포레스트 분류기를 사용하여 도시 공간 패턴을 다수의 의사 결정 트리로 학습
 
+<br>
 
 ### 모델 핵심 피처 변수
 
-![alt text](docs/image.png)
+![alt text](docs/importance.png)
+
+<br>
 
 ### 서비스 구조
 <img width="1139" height="660" alt="image" src="https://github.com/user-attachments/assets/67b9764c-1342-4bf7-b031-5f7006590e34" />
