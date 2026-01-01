@@ -79,7 +79,7 @@
 ### 필지 데이터 분석
 <img width="1253" height="576" alt="image" src="https://github.com/user-attachments/assets/413cc2ec-6683-4b34-836a-b6813c1f79ff" />
 
-![alt text](docs/gis.png)
+<img width="1253" height="576" alt="image" src="docs/gis.png" />
 
 * QGIS를 사용하여 공간 데이터 통합
 * PostgreSQL DB에서 공간 데이터 베이스 구축
@@ -91,6 +91,8 @@
 
 ### 모델 개선
 <img width="1301" height="622" alt="image" src="https://github.com/user-attachments/assets/e5f896cd-5457-4015-8e9c-e296b5e9afc2" />
+
+<img width="1301" height="622" alt="image" src="docs/image-1.png" />
 
 ![alt text](docs/image-1.png)
 
