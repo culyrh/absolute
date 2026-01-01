@@ -70,12 +70,16 @@
 ### 알고리즘 설계
 <img width="1255" height="589" alt="image" src="https://github.com/user-attachments/assets/cfccd3fc-e9a6-47db-8fe5-ddea5858180e" />
 
+![alt text](docs/algorithm.png)
+
 ---
 
 ## 2. 수행내용
 
 ### 필지 데이터 분석
 <img width="1253" height="576" alt="image" src="https://github.com/user-attachments/assets/413cc2ec-6683-4b34-836a-b6813c1f79ff" />
+
+![alt text](docs/gis.png)
 
 * QGIS를 사용하여 공간 데이터 통합
 * PostgreSQL DB에서 공간 데이터 베이스 구축
