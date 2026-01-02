@@ -79,7 +79,6 @@
 
 <img width="1253" height="576" alt="image" src="https://github.com/user-attachments/assets/413cc2ec-6683-4b34-836a-b6813c1f79ff" />
 
-* [POST_GIS.md](docs/notes/POST_GIS.md)
 * QGIS를 사용하여 공간 데이터 통합
 * PostgreSQL DB에서 공간 데이터 베이스 구축
 * PostGIS를 활용하여 공간 연산 
