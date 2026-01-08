@@ -53,11 +53,8 @@
 * 폐주유소의 증가로 인한 **도시 미관 저해, 환경 오염, 안전사고 위험** 등 다양한 사회적 문제가 지속적으로 발생
 * 현재는 폐주유소 활용 여부를 행정 담당자가 현장 조사와 주관적 판단에 의존해 결정하는 한계 존재
 * 교통량, 인구, 상권, 관광 데이터 등 다양한 공공데이터가 축적되고 있음에도 이를 종합적으로 분석하여 활용하는 시스템 부재</br>
-<img width="1561" height="550" alt="image" src="https://github.com/user-attachments/assets/880fdc09-2e3c-4c6d-a9cb-1501ed6ab249" />
 
 ![alt text](docs/task2.png)
-
-![alt text](docs/task.png)
 
 ---
 
