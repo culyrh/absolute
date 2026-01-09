@@ -97,8 +97,6 @@ LSMD_CONT_LDREG_52113_202510.shp
 └── .prj   ← 좌표계 정보
 ```
 
-<br>
-
 ### 필지 데이터 분석 
 
 <img width="1253" height="576" alt="image" src="https://github.com/user-attachments/assets/413cc2ec-6683-4b34-836a-b6813c1f79ff" />
