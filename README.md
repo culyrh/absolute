@@ -71,6 +71,8 @@
 
 ![alt text](docs/algorithm.png)
 
+![alt text](docs/algorithm2.png)
+
 ---
 
 ## 2. 수행내용

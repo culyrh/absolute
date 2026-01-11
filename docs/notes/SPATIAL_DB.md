@@ -1,4 +1,4 @@
-## 연속지적 필지 계산 (PostGIS)
+## PostGIS 연속지적 필지 계산
 
 ### 국토교통부_연속지적_전국
 
@@ -210,7 +210,7 @@ for idx in df.index:
 return pd.DataFrame(features, index=df.index)  # DataFrame 반환
 ```
 
-- train.csv와 병합
+- 학습데이터(train.csv)와 병합
 
 ```python
 def run(self) -> pd.DataFrame:
