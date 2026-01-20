@@ -10,25 +10,25 @@
   <tr>
     <td align="center">
       <a href="https://github.com/sjin02">
-        <img src="https://avatars.githubusercontent.com/sjin02" width="120px" style="border-radius:50%;" /><br/>
+        <img src="https://avatars.githubusercontent.com/sjin02" width="100px" style="border-radius:50%;" /><br/>
         <sub><b>권서진</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/gajaeup">
-        <img src="https://avatars.githubusercontent.com/gajaeup" width="120px" style="border-radius:50%;" /><br/>
+        <img src="https://avatars.githubusercontent.com/gajaeup" width="100px" style="border-radius:50%;" /><br/>
         <sub><b>김지애</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/culyrh">
-        <img src="https://avatars.githubusercontent.com/culyrh" width="120px" style="border-radius:50%;" /><br/>
+        <img src="https://avatars.githubusercontent.com/culyrh" width="100px" style="border-radius:50%;" /><br/>
         <sub><b>박소현</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/JinHaeunn">
-        <img src="https://avatars.githubusercontent.com/JinHaeunn" width="120px" style="border-radius:50%;" /><br/>
+        <img src="https://avatars.githubusercontent.com/JinHaeunn" width="100px" style="border-radius:50%;" /><br/>
         <sub><b>진하은</b></sub>
       </a>
     </td>
@@ -104,7 +104,7 @@ LSMD_CONT_LDREG_52113_202510.shp
 * 랜덤 포레스트 분류기를 사용하여 도시 공간 패턴을 다수의 의사 결정 트리로 학습
 
 
-### 모델 핵심 피처 변수
+### 모델 핵심 지표
 
 <img src="docs/importance.png" width="800" height="400" alt="화면 예시" />
 
