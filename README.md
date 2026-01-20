@@ -42,9 +42,7 @@
 ## 목적
 ### 전기차 보급 확대와 에너지 전환 흐름으로 증가하고 있는 폐주유소 유휴부지에 대해, 공공 데이터 기반 AI 분석을 수행하여 각 부지에 적합한 최적의 활용 유형을 자동으로 추천하는 의사결정 지원 시스템을 구축한다.
 
-<p align="center">
-  <img src="docs/template-2.png" width="700" alt="화면 예시" />
-</p>
+<img src="docs/template-2.png" width="700" alt="화면 예시" />
 
 ---
 
@@ -57,33 +55,28 @@
   <img src="docs/task.png" width="750" alt="화면 예시" />
 </p>
 
-<img width="1561" height="550" alt="image" src="https://github.com/user-attachments/assets/880fdc09-2e3c-4c6d-a9cb-1501ed6ab249" />
-
-
-
 ---
 
 ## 1. 구현방법
 
 ### 데이터 구성 체계
-<img width="1561" height="432" alt="image" src="https://github.com/user-attachments/assets/700a568f-34f2-40bb-bdb6-3f26df3bd194" />
+<img width="861" height="300" alt="image" src="https://github.com/user-attachments/assets/700a568f-34f2-40bb-bdb6-3f26df3bd194" />
 
 ### 활용방안 데이터 기준
-<img width="1157" height="630" alt="image" src="https://github.com/user-attachments/assets/fbae7cb1-1b4a-46ff-9006-43cce5f6cbf6" />
+<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/fbae7cb1-1b4a-46ff-9006-43cce5f6cbf6" />
 
 <br>
 
 ### 알고리즘 설계
 
-
-![alt text](docs/algorithm.png)
+<img src="docs/algorithm.png" width="800" height="400" alt="화면 예시" />
 
 ---
 
 ## 2. 수행내용
 
 ### 국토교통부_연속지적_전국
-https://www.data.go.kr/data/15125044/fileData.do#
+- https://www.data.go.kr/data/15125044/fileData.do#
 
 ```
 LSMD_CONT_LDREG_52113_202510.shp
@@ -95,13 +88,13 @@ LSMD_CONT_LDREG_52113_202510.shp
 
 ### 필지 데이터 분석 
 
-<img width="1253" height="576" alt="image" src="https://github.com/user-attachments/assets/413cc2ec-6683-4b34-836a-b6813c1f79ff" />
+<img src="docs/gis.png" width="800" height="400" alt="화면 예시" />
 
 * QGIS를 사용하여 공간 데이터 통합
 * PostgreSQL DB에서 공간 데이터 베이스 구축
 * PostGIS를 활용하여 공간 연산 
 
-<img width="1355" height="520" alt="image" src="https://github.com/user-attachments/assets/dfdec09c-4721-4c7f-b642-e8bf55bfe1d6" />
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/dfdec09c-4721-4c7f-b642-e8bf55bfe1d6" />
 
 ---
 
@@ -115,11 +108,11 @@ LSMD_CONT_LDREG_52113_202510.shp
 
 ### 모델 핵심 피처 변수
 
-![alt text](docs/importance.png)
+<img src="docs/importance.png" width="800" height="400" alt="화면 예시" />
 
 
 ### 서비스 구조
-<img width="1139" height="660" alt="image" src="https://github.com/user-attachments/assets/67b9764c-1342-4bf7-b031-5f7006590e34" />
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/67b9764c-1342-4bf7-b031-5f7006590e34" />
 
 ---
 
