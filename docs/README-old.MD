@@ -1,4 +1,4 @@
-# 폐주유소 부지활용 의사결정 지원시스템 개발 (DSS)
+# GeoAI 기반 폐주유소 부지활용 의사결정 지원시스템 개발
 
 해당 프로젝트는 **한국국토정보공사(LX)** 와의 협력으로 진행되었습니다.
 <br>
@@ -84,6 +84,8 @@ LSMD_CONT_LDREG_52113_202510.shp
 
 ### 필지 데이터 분석 
 
+<img src="docs/gis.png" width="800" height="400" alt="화면 예시" />
+
 * QGIS를 사용하여 공간 데이터 통합
 * PostgreSQL DB에서 공간 데이터 베이스 구축
 * PostGIS를 활용하여 공간 연산 
@@ -103,6 +105,10 @@ LSMD_CONT_LDREG_52113_202510.shp
 ### 모델 핵심 지표
 
 <img src="docs/importance.png" width="800" height="400" alt="화면 예시" />
+
+
+### 서비스 구조
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/67b9764c-1342-4bf7-b031-5f7006590e34" />
 
 ---
 
