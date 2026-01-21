@@ -87,7 +87,6 @@ LSMD_CONT_LDREG_52113_202510.shp
 
 <img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/dfdec09c-4721-4c7f-b642-e8bf55bfe1d6" />
 
----
 
 ### 모델 핵심 지표
 
