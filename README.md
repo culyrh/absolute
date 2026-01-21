@@ -87,6 +87,15 @@ LSMD_CONT_LDREG_52113_202510.shp
 
 <img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/dfdec09c-4721-4c7f-b642-e8bf55bfe1d6" />
 
+---
+
+### 모델 개선
+
+![alt text](docs/image-1.png)
+
+* 공간 분석으로 산출한 데이터 + 비공간 지표 => 학습 데이터셋 구성
+* 랜덤 포레스트 분류기를 사용하여 도시 공간 패턴을 다수의 의사 결정 트리로 학습
+
 
 ### 모델 핵심 지표
 
