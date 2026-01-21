@@ -57,7 +57,7 @@
 ## 1. 구현방법
 
 ### 데이터 구성 체계
-<img width="750" height="300" alt="image" src="https://github.com/user-attachments/assets/700a568f-34f2-40bb-bdb6-3f26df3bd194" />
+<img width="800" height="300" alt="image" src="https://github.com/user-attachments/assets/700a568f-34f2-40bb-bdb6-3f26df3bd194" />
 
 ### 활용방안 데이터 기준
 <img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/fbae7cb1-1b4a-46ff-9006-43cce5f6cbf6" />
