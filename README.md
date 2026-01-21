@@ -1,6 +1,6 @@
 # GeoAI 기반 폐주유소 부지활용 의사결정 지원시스템 개발
 
-해당 프로젝트는 **[한국국토정보공사(LX)](https://www.lx.or.kr/kor.do)** x **팀 앱솔루트**의 협력으로 진행되었습니다.
+해당 프로젝트는 **한국국토정보공사(LX)** 와의 협력으로 진행되었습니다.
 <br>
 프론트 깃허브 링크 : [Front-End](https://github.com/gajaeup/absolute)
 
@@ -50,16 +50,14 @@
 * 폐주유소의 증가로 인한 **도시 미관 저해, 환경 오염, 안전사고 위험** 등 다양한 사회적 문제가 지속적으로 발생
 * 교통량, 인구, 상권, 관광 데이터 등 다양한 공공데이터가 축적되고 있음에도 이를 종합적으로 분석하여 활용하는 시스템 부재</br>
 
-<p align="center">
-  <img src="docs/task.png" width="750" alt="화면 예시" />
-</p>
+<img src="docs/task.png" width="750" height="350" alt="화면 예시" />
 
 ---
 
 ## 1. 구현방법
 
 ### 데이터 구성 체계
-<img width="861" height="300" alt="image" src="https://github.com/user-attachments/assets/700a568f-34f2-40bb-bdb6-3f26df3bd194" />
+<img width="750" height="300" alt="image" src="https://github.com/user-attachments/assets/700a568f-34f2-40bb-bdb6-3f26df3bd194" />
 
 ### 활용방안 데이터 기준
 <img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/fbae7cb1-1b4a-46ff-9006-43cce5f6cbf6" />
