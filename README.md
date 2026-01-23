@@ -85,8 +85,6 @@ LSMD_CONT_LDREG_52113_202510.shp
 * PostgreSQL DB에서 공간 데이터 베이스 구축
 * PostGIS를 활용하여 공간 연산 
 
-<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/dfdec09c-4721-4c7f-b642-e8bf55bfe1d6" />
-
 ---
 
 ### 모델 개선
